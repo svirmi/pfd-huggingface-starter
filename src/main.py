@@ -3,6 +3,8 @@ from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 
 app = FastAPI()
 
+tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-xsum")
+model = PegasusForConditionalGeneration.from_pretrained("google/pegasus-xsum")
 
 @app.post('/summarize')
 async def get_sum():
@@ -11,6 +13,4 @@ async def get_sum():
 
 @app.get('/')
 async def load():
-    tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-xsum")
-    model = PegasusForConditionalGeneration.from_pretrained("google/pegasus-xsum")
-    return {"Hello": "World"}
+    return {"Hello": "Transformer!"}
