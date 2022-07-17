@@ -6,6 +6,7 @@ app = FastAPI()
 tokenizer = PegasusTokenizer.from_pretrained("google/pegasus-xsum")
 model = PegasusForConditionalGeneration.from_pretrained("google/pegasus-xsum")
 
+
 @app.post('/summarize')
 async def get_sum():
     return {"Hello": "World"}
